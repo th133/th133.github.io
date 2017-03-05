@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Taehyun Lee</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            var scrollY = 0;
+            var distance = 40;
+            var speed = 20;
+                
+            
+            // showNavBar() displays the div with id of "navbar"
+            // showNavBar: Void -> Void
+            // effect: displays div with id "navbar"
+            function showNavBar() {
+                document.getElementById("navbar").style.display = "block";
+            }
+            
+            // hideNavBar() causes the div with id of "navbar" disappear
+            // hideNavBar: Void -> Void
+            function hideNavBar() {
+                document.getElementById("navbar").style.display = "none";
+            }
+        </script>
+    </head>
+    
+    <body>
+        
+        <div  class="jumbotron" id="header">
+            <div class="container">
+                <h1>Taehyun Lee</h1>
+                <p>University of Waterloo, Mathematics Faculty: 1<sup>st</sup> year student</p>
+                <a href="#about" onclick="showNavBar()">About</a>
+                <a href="#projects" onclick="showNavBar()">Projects</a>
+                <a href="#contacts" onclick="showNavBar()">Contacts</a>
+            </div>
+        </div>
+        <div id="about" class="pagebody">
+            <div class="container">
+                <div class="row" id="centerBox">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                    &emsp;
+                    &emsp;
+                    <h2>About Me</h2>
+                    <p>Hi! I am a first year co-op Honours Mathematics student in the University of Waterloo.</p>
+                    <p>As a student in Waterloo Mathematics program, I have learned core-ideas of programming involving data structures, recursion, modularization, documentation, and more. In the years to come, I am eager to pick up more languages, but here are the languages that I am familiar with up to date.</p>
+                    <ul>
+                        <li>C</li>
+                        <li>CSS</li>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>HTML</li>
+                        <li>Racket (Educational Scheme)</li>
+                        <li>Swift</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="projects" class="pagebody">
+            <div class="container">
+                <div class="row">
+                    &emsp;
+                    <div class="col-sm-8">
+                        &emsp;
+                        <h1>Finished Projects</h1>
+                        <h2>Map of a Mock-up Mall</h2>
+                        <p>Map of a Mock-up Mall is a school project made to explore real life uses of Java's GUI features, along with experimentations involving I/O from file to GUI.</p>
+                        <p>To showcase the I/O feature from file to GUI, the administrators were given the option to make new stores, edit description, and set the type of the store, and the shoppers were given the feature to browse stores by type and name, as well as give ratings to each store.</p>
+                        &emsp;
+                        <h2>Factor+</h2>
+                        <p>Factor+ is an IOS application made as a school project in a team of four. The game was made to allow emerging highschool students to be familiarized with the concept of factoring.</p>
+                        <p>After the completion of the game, it was submitted to AppJam, where it won $500 as prize money.</p>
+                    </div>
+                    <div class="col-sm-4">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contacts" class="pagebody">
+            <div class="container">
+                <div class="row" id="centerBox">
+                    &emsp;
+                    &emsp;
+                    <h2>Email</h2>
+                    <p>t73lee@edu.uwaterloo.ca</p>
+                    &emsp;
+                    <h2>Phone</h2>
+                    <p>613-600-4482</p>
+                    &emsp;
+                    <h2>LinkedIn</h2>
+                    <a href="https://www.linkedin.com/in/taehyun-lee-6278b0132">Click Me!</a>
+                </div>
+            </div>
+        </div>
+        <div id="navbar" onclick="goUp()">
+            <div class="container">
+                <a href="#header" onclick="hideNavBar()">Back</a>
+            </div>
+        </div>
+    </body>
+</html>
