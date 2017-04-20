@@ -1,109 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <title>Taehyun Lee</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1"
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <title>taehyunlee.ca</title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="fadeIn.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
-            var scrollY = 0;
-            var distance = 40;
-            var speed = 20;
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            
+            window.onresize = adjust;
+            
+            function adjust() {
+                var blocks = document.getElementsByClassName("displayblock");
+                var navbar = document.getElementById("navbar");
+                var containers = document.getElementsByClassName("projectImg");
+                var imgs = document.getElementsByClassName("image");
                 
-            
-            // showNavBar() displays the div with id of "navbar"
-            // showNavBar: Void -> Void
-            // effect: displays div with id "navbar"
-            function showNavBar() {
-                document.getElementById("navbar").style.display = "block";
-                return false;
+                width = window.innerWidth;
+                height = window.innerHeight;
+                
+                var imgwidth = width / 3.2;
+                var numHanging = -1;
+                
+                if(window.innerWidth * 1.5 < screen.availWidth){
+                    imgwidth = width / 2.1;
+                    numHanging += 2;
+                }
+                
+                if(window.innerWidth * 2.5 < screen.availWidth){
+                    imgwidth = width / 1.02;
+                    numHanging += 4;
+                }
+                
+                for(var i = 0; i < imgs.length; i++){
+                    containers[i].style.width = imgwidth + "px";
+                    imgs[i].style.height = (imgwidth / 1.5) + "px";
+                }
+                for(var i = 0; i < blocks.length; i++){
+                    blocks[i].style.marginTop = navbar.height;
+                    blocks[i].style.width = width+"px";
+                    blocks[i].style.height = height+"px";
+                }
+                blocks[1].style.height = height + (height / 6) * numHanging + "px";
             }
             
-            // hideNavBar() causes the div with id of "navbar" disappear
-            // hideNavBar: Void -> Void
-            function hideNavBar() {
-                document.getElementById("navbar").style.display = "none";
+            function goToElem(elem){
+                var speed = 10;
+                var h = document.getElementById(elem).offsetTop;
+                if(window.pageYOffset > h){
+                    speed = -10;
+                }
+                var myVar = setInterval(scrollThere, 10);
+                function scrollThere(){
+                    if(window.pageYOffset >= h - 5 && window.pageYOffset <= h + 5){
+                        window.scroll(0, h);
+                        clearInterval(myVar);
+                    } else {
+                        window.scroll(0, window.pageYOffset + speed);
+                    }
+                }
             }
+            
+            function goToBot(){
+                var speed = 15;
+                var h = document.body.scrollHeight - window.innerHeight;
+                if(window.pageYOffset > h){
+                    speed = -100;
+                }
+                var myVar = setInterval(scrollThere, 10);
+                function scrollThere(){
+                    if(window.pageYOffset >= h - 7 && window.pageYOffset <= h + 7){
+                        window.scroll(0, h);
+                        clearInterval(myVar);
+                    } else {
+                        window.scroll(0, window.pageYOffset + speed);
+                    }
+                }
+            }
+            
+            window.onscroll = function(){
+                var navbar = document.getElementById("navbar");
+                var size = Math.max(20, 50 / (1 + Math.max(0, window.pageYOffset / 100)));
+                document.getElementById("logotxt").style.fontSize = size+"px";
+                if(window.pageYOffset > 0){
+                    navbar.style.boxShadow = "0px 3px 9px darkgrey";
+                } else {
+                    navbar.style.boxShadow = "0px 0px 0px white";
+                }
+                
+            }
+            
+            
+            
         </script>
+        <style>
+            #logo{
+                margin: 0;
+                text-align: center;
+            }
+            
+            h1{
+                margin: 0;
+            }
+            
+            #logo h1{
+                margin-top: 10px;
+                margin-bottom: 0;
+                font-size: 50px;
+                font-family: serif;
+            }
+            
+            #navbar{
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: whitesmoke;
+            }
+            
+            #navbar li{
+                display: inline-block;
+                width: 90px;
+            }
+            
+            #list ul{
+                list-style: none;
+                margin: 0;
+                padding: 5px;
+                font-size: 15px;
+            }
+            
+            #navlist p{
+                color: slategrey;
+                padding: 5px;
+                
+            }
+            
+            #navlist p:hover{
+                color: black;
+                text-decoration: none;
+            }
+            
+            #navlist{
+                text-align: center;
+            }
+            
+            .displayblock h1{
+                font-size: 50px;
+                color: ghostwhite;
+                font-family: serif;
+                text-shadow: 2px 2px 3px black;
+            }
+            
+            .displayblock p{
+                font-size: 20px;
+                color: white;
+                text-shadow: 2px 2px 3px black;
+            }
+            
+            .displayblock a{
+                font-size: 20px;
+                color: lightblue;
+                text-shadow: 2px 2px 3px black;
+            }
+            
+            .displayblock a:hover{
+                color: skyblue;
+            }
+            
+            .displayblock{
+                background-color: whitesmoke;
+                border-bottom-color: lightslategrey;
+                border-bottom: 1px dotted white;
+                padding-top: 150px;
+                text-align: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            
+            #About{
+                background-image: url(About.JPG);
+                
+            }
+            
+            #Projects{
+                background-color: white;
+            }
+            
+            #Projects h1{
+                color: lightgrey;
+            }
+            
+            #projects a{
+                color: darkslategrey;
+                text-shadow: 0 0 0 white;
+            }
+            
+            #projects a:hover{
+                color: black;
+            }
+            
+            .projectImg{
+                float: left;
+            }
+            
+            #Playground{
+                background-image: url(Playground.JPG);
+            }
+            
+            #Contacts{
+                background-color: dimgrey;
+                text-align: center;
+            }
+            
+            #Contacts img{
+                width: 30px;
+                height: 30px;
+            }
+            
+            #contactsImg a{
+                background-size: cover;
+                padding-bottom: 14px;
+            }
+            
+            #Git{
+                background-image: url(Git.png);
+            }
+            
+            #Git:hover{
+                background-image: url(GitPress.png);
+            }
+            
+            #In{
+                background-image: url(In.png);
+            }
+            
+            #In:hover{
+                background-image: url(InPress.png);
+            }
+            
+            #Mail{
+                background-image: url(Mail.png);
+            }
+            
+            #Mail:hover{
+                background-image: url(MailPress.png);
+            }
+        </style>
     </head>
     
-    <body>
+    <body onload="adjust()">
         
-        <div  class="jumbotron" id="header">
-            <div class="container">
-                <h1>Taehyun Lee</h1>
-                <p>University of Waterloo, Mathematics Faculty: 1<sup>st</sup> year student</p>
-                <a href="#about" onclick="showNavBar()">About</a>
-                <a href="#projects" onclick="showNavBar()">Projects</a>
-                <a href="#contacts" onclick="showNavBar()">Contacts</a>
-            </div>
+        <div class="displayblock" id="About">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1>About Me</h1>
+            <p id="abtme">Hi! My name is Taehyun and I am a first year Honours Mathematics student in the University of Waterloo.</p>
+            <a href="Taehyun_Lee_Resume.pdf">Resume</a>
         </div>
-        <div id="about" class="pagebody">
-            <div class="container">
-                <div class="row" id="centerBox">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-                    &emsp;
-                    &emsp;
-                    <h2>About Me</h2>
-                    <p>Hi! I am a first year co-op Honours Mathematics student in the University of Waterloo.</p>
-                    <p>As a student in Waterloo Mathematics program, I have learned core-ideas of programming involving data structures, recursion, modularization, documentation, and more. In the years to come, I am eager to pick up more languages, but here are the languages that I am familiar with up to date.</p>
-                    <ul>
-                        <li>C</li>
-                        <li>CSS</li>
-                        <li>Java</li>
-                        <li>JavaScript</li>
-                        <li>HTML</li>
-                        <li>Racket (Educational Scheme)</li>
-                        <li>Swift</li>
-                    </ul>
+        <div class="displayblock" id="Projects">
+            <div id="projects">
+                <div class="projectImg">
+                    <img src="FactorPlus.png" class="image">
+                    <div class="overlay">
+                        <a class="text" href="https://github.com/lyoon1/FactorPlus-Ver.-2">Factor+</a>
+                    </div>
+                </div>
+                <div class="projectImg">
+                    <img src="Orbit.png" class="image">
+                    <div class="overlay">
+                        <a class="text" href="https://github.com/Taehyun-Lee/orbit">Orbit Library</a>
+                    </div>
+                </div>
+                <div class="projectImg">
+                    <img src="Mall.png" class="image">
+                    <div class="overlay">
+                        <a class="text" href="https://github.com/Taehyun-Lee/map-of-mall">Map of Mockup Mall</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="projects" class="pagebody">
-            <div class="container">
-                <div class="row">
-                    &emsp;
-                    <div class="col-sm-8">
-                        &emsp;
-                        <h1>Finished Projects</h1>
-                        <h2>Map of a Mock-up Mall</h2>
-                        <p>Map of a Mock-up Mall is a school project made to explore real life uses of Java's GUI features, along with experimentations involving I/O from file to GUI.</p>
-                        <p>To showcase the I/O feature from file to GUI, the administrators were given the option to make new stores, edit description, and set the type of the store, and the shoppers were given the feature to browse stores by type and name, as well as give ratings to each store.</p>
-                        &emsp;
-                        <h2>Factor+</h2>
-                        <p>Factor+ is an IOS application made as a school project in a team of four. The game was made to allow emerging highschool students to be familiarized with the concept of factoring.</p>
-                        <p>After the completion of the game, it was submitted to AppJam, where it won $500 as prize money.</p>
-                    </div>
-                    <div class="col-sm-4">
-                    
-                    </div>
-                </div>
-            </div>
+        <div class="displayblock" id="Playground">
+            <h1>Playground</h1>
+            <br>
+            <br>
+            <p>Here I will put random things that I will work on in the future.</p>
         </div>
-        <div id="contacts" class="pagebody">
-            <div class="container">
-                <div class="row" id="centerBox">
-                    &emsp;
-                    &emsp;
-                    <h2>Email</h2>
-                    <p>t73lee@edu.uwaterloo.ca</p>
-                    &emsp;
-                    <h2>Phone</h2>
-                    <p>613-600-4482</p>
-                    &emsp;
-                    <h2>LinkedIn</h2>
-                    <a href="https://www.linkedin.com/in/taehyun-lee-6278b0132">Click Me!</a>
-                </div>
+        <div class="footer" id="Contacts">
+            <div id="contactsImg">
+                <a id="Git" href="https://github.com/taehyun-lee"><img src="Empty%20Img.png"></a>
+                <a id="In" href="https://www.linkedin.com/in/taehyun-lee-6278b0132/"><img src="Empty%20Img.png"></a>
+                <a id="Mail" href="mailto:t73lee@edu.uwaterloo.ca"><img src="Empty%20Img.png"></a>
             </div>
+            <br>
+            <div>Icons made by <a href="http://www.flaticon.com/authors/simpleicon" title="SimpleIcon">SimpleIcon</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
         </div>
-        <div id="navbar" onclick="goUp()">
-            <div class="container">
-                <a href="#header" onclick="hideNavBar()">Back</a>
+        <div id="navbar">
+            <p id="test"></p>
+            <div id="logo">
+                <h1 id="logotxt">TL</h1>
+            </div>
+            <div id="list">
+                <ul id="navlist">
+                    <li><p onclick="goToElem('About')">About</p></li>
+                    <li><p onclick="goToElem('Projects')">Projects</p></li>
+                    <li><p onclick="goToElem('Playground')">Playground</p></li>
+                    <li><p onclick="goToBot()">Contacts</p></li>
+                </ul>
             </div>
         </div>
     </body>
