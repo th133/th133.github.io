@@ -24,14 +24,14 @@
                 height = window.innerHeight;
                 
                 var imgwidth = width / 3.2;
-                var numHanging = -1;
+                var numHanging = 0;
                 
-                if(window.innerWidth * 1.5 < screen.availWidth){
+                if(window.innerWidth * 1.5 < screen.availWidth || screen.availWidth < screen.availHeight){
                     imgwidth = width / 2.1;
-                    numHanging += 2;
+                    numHanging += 1;
                 }
                 
-                if(window.innerWidth * 2.5 < screen.availWidth){
+                if(window.innerWidth * 2.5 < screen.availWidth || screen.availWidth < screen.availHeight){
                     imgwidth = width / 1.02;
                     numHanging += 4;
                 }
@@ -41,7 +41,7 @@
                     imgs[i].style.height = (imgwidth / 1.5) + "px";
                 }
                 for(var i = 0; i < blocks.length; i++){
-                    blocks[i].style.marginTop = navbar.height;
+                    blocks[i].style.paddingTop = height / 3 + "px";
                     blocks[i].style.width = width+"px";
                     blocks[i].style.height = height+"px";
                 }
@@ -175,11 +175,17 @@
                 background-color: whitesmoke;
                 border-bottom-color: lightslategrey;
                 border-bottom: 1px dotted white;
-                padding-top: 150px;
                 text-align: center;
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center center;
+            }
+            
+            #center{
+                margin: 0 auto;
+                width: 100%;
+                position: relative;
+                    
             }
             
             #About{
@@ -256,16 +262,15 @@
     <body onload="adjust()">
         
         <div class="displayblock" id="About">
-            <br>
-            <br>
-            <br>
-            <br>
-            <h1>About Me</h1>
-            <p id="abtme">Hi! My name is Taehyun and I am a first year Honours Mathematics student in the University of Waterloo.</p>
-            <a href="Taehyun_Lee_Resume.pdf">Resume</a>
+            <div id="center">
+                <h1>About Me</h1>
+                <p id="abtme">Hi! My name is Taehyun and I am a first year Honours Mathematics student in the University of Waterloo.</p>
+                <a href="Taehyun_Lee_Resume.pdf">Resume</a>
+            </div>
         </div>
         <div class="displayblock" id="Projects">
             <div id="projects">
+                <div id="center">
                 <div class="projectImg">
                     <img src="FactorPlus.png" class="image">
                     <div class="overlay">
@@ -284,13 +289,16 @@
                         <a class="text" href="https://github.com/Taehyun-Lee/map-of-mall">Map of Mockup Mall</a>
                     </div>
                 </div>
+                </div>
             </div>
         </div>
         <div class="displayblock" id="Playground">
+            <div id="center">
             <h1>Playground</h1>
             <br>
             <br>
             <p>Here I will put random things that I will work on in the future.</p>
+            </div>
         </div>
         <div class="footer" id="Contacts">
             <div id="contactsImg">
