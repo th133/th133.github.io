@@ -83,12 +83,12 @@
             }
             
             window.onscroll = function(){
-                var navbar = document.getElementById("navbar");
+                //var navbar = document.getElementById("navbar");
                 var size = Math.max(20, 50 / (1 + Math.max(0, window.pageYOffset / 100)));
                 document.getElementById("logotxt").style.fontSize = size+"px";
-                navbar.style.filter = "invert=(" + Math.min(100, window.pageYOffset / 5) + "%)";
+                document.getElementById("navbar").style.filter = "invert=(" + Math.min(100, window.pageYOffset / 5) + "%)";
                 console.log("invert=(" + Math.min(100, window.pageYOffset / 5) + "%)");
-                console.log(navbar.style.filter);
+                console.log(document.getElementById("navbar").style.filter);
             }
             
             
