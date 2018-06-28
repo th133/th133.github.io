@@ -86,9 +86,7 @@
                 //var navbar = document.getElementById("navbar");
                 var size = Math.max(20, 50 / (1 + Math.max(0, window.pageYOffset / 100)));
                 document.getElementById("logotxt").style.fontSize = size+"px";
-                document.getElementById("navbar").style.filter = "invert=(" + Math.min(100, window.pageYOffset / 5) + "%)";
-                console.log("invert=(" + Math.min(100, window.pageYOffset / 5) + "%)");
-                console.log(document.getElementById("navbar").style.filter);
+                document.getElementById("navbar").style.filter = "invert(" + Math.min(100, window.pageYOffset / 5) + "%)";
             }
             
             
