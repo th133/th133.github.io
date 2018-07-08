@@ -6,92 +6,6 @@
         <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="fadeIn.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script>
-            var width = window.innerWidth;
-            var height = window.innerHeight;
-            
-            window.onresize = adjust;
-            
-            function adjust() {
-                var blocks = document.getElementsByClassName("displayblock");
-                var navbar = document.getElementById("navbar");
-                var containers = document.getElementsByClassName("projectImg");
-                var imgs = document.getElementsByClassName("image");
-                
-                width = window.innerWidth;
-                height = window.innerHeight;
-                
-                var imgwidth = width / 3.2;
-                var numHanging = 0;
-                
-                if(window.innerWidth * 1.5 < screen.availWidth || screen.availWidth < screen.availHeight){
-                    imgwidth = width / 2.1;
-                    numHanging += 1;
-                }
-                
-                if(window.innerWidth * 2.5 < screen.availWidth || screen.availWidth < screen.availHeight){
-                    imgwidth = width / 1.02;
-                    numHanging += 4;
-                }
-                
-                for(var i = 0; i < imgs.length; i++){
-                    containers[i].style.width = imgwidth + "px";
-                    imgs[i].style.height = (imgwidth / 1.5) + "px";
-                }
-                for(var i = 0; i < blocks.length; i++){
-                    blocks[i].style.paddingTop = height / 3 + "px";
-                    blocks[i].style.width = width+"px";
-                    blocks[i].style.height = height+"px";
-                }
-                blocks[1].style.height = height + (height / 6) * numHanging + "px";
-            }
-            
-            function goToElem(elem){
-                var speed = 10;
-                var h = document.getElementById(elem).offsetTop;
-                if(window.pageYOffset > h){
-                    speed = -10;
-                }
-                var myVar = setInterval(scrollThere, 10);
-                function scrollThere(){
-                    if(window.pageYOffset >= h - 5 && window.pageYOffset <= h + 5){
-                        window.scroll(0, h);
-                        clearInterval(myVar);
-                    } else {
-                        window.scroll(0, window.pageYOffset + speed);
-                    }
-                }
-            }
-            
-            function goToBot(){
-                var speed = 15;
-                var h = document.body.scrollHeight - window.innerHeight;
-                if(window.pageYOffset > h){
-                    speed = -100;
-                }
-                var myVar = setInterval(scrollThere, 10);
-                function scrollThere(){
-                    if(window.pageYOffset >= h - 7 && window.pageYOffset <= h + 7){
-                        window.scroll(0, h);
-                        clearInterval(myVar);
-                    } else {
-                        window.scroll(0, window.pageYOffset + speed);
-                    }
-                }
-            }
-            
-            window.onscroll = function(){
-                //var navbar = document.getElementById("navbar");
-                var size = Math.max(20, 50 / (1 + Math.max(0, window.pageYOffset / 100)));
-                document.getElementById("logotxt").style.fontSize = size+"px";
-                document.getElementById("navbar").style.filter = "invert(" + Math.min(100, window.pageYOffset / 5) + "%)";
-            }
-            
-            
-            
-        </script>
         <style>
             #logo{
                 margin: 0;
@@ -129,6 +43,7 @@
             }
             
             #navlist p{
+                cursor: pointer;
                 color: slategrey;
                 padding: 5px;
                 
@@ -296,5 +211,91 @@
                 </ul>
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            
+            window.onresize = adjust;
+            
+            function adjust() {
+                var blocks = document.getElementsByClassName("displayblock");
+                var navbar = document.getElementById("navbar");
+                var containers = document.getElementsByClassName("projectImg");
+                var imgs = document.getElementsByClassName("image");
+                
+                width = window.innerWidth;
+                height = window.innerHeight;
+                
+                var imgwidth = width / 3.2;
+                var numHanging = 0;
+                
+                if(window.innerWidth * 1.5 < screen.availWidth || screen.availWidth < screen.availHeight){
+                    imgwidth = width / 2.1;
+                    numHanging += 1;
+                }
+                
+                if(window.innerWidth * 2.5 < screen.availWidth || screen.availWidth < screen.availHeight){
+                    imgwidth = width / 1.02;
+                    numHanging += 4;
+                }
+                
+                for(var i = 0; i < imgs.length; i++){
+                    containers[i].style.width = imgwidth + "px";
+                    imgs[i].style.height = (imgwidth / 1.5) + "px";
+                }
+                for(var i = 0; i < blocks.length; i++){
+                    blocks[i].style.paddingTop = height / 3 + "px";
+                    blocks[i].style.width = width+"px";
+                    blocks[i].style.height = height+"px";
+                }
+                blocks[1].style.height = height + (height / 6) * numHanging + "px";
+            }
+            
+            function goToElem(elem){
+                var speed = 10;
+                var h = document.getElementById(elem).offsetTop;
+                if(window.pageYOffset > h){
+                    speed = -10;
+                }
+                var myVar = setInterval(scrollThere, 10);
+                function scrollThere(){
+                    if(window.pageYOffset >= h - 5 && window.pageYOffset <= h + 5){
+                        window.scroll(0, h);
+                        clearInterval(myVar);
+                    } else {
+                        window.scroll(0, window.pageYOffset + speed);
+                    }
+                }
+            }
+            
+            function goToBot(){
+                var speed = 15;
+                var h = document.body.scrollHeight - window.innerHeight;
+                if(window.pageYOffset > h){
+                    speed = -100;
+                }
+                var myVar = setInterval(scrollThere, 10);
+                function scrollThere(){
+                    if(window.pageYOffset >= h - 7 && window.pageYOffset <= h + 7){
+                        window.scroll(0, h);
+                        clearInterval(myVar);
+                    } else {
+                        window.scroll(0, window.pageYOffset + speed);
+                    }
+                }
+            }
+            
+            window.onscroll = function(){
+                //var navbar = document.getElementById("navbar");
+                var size = Math.max(20, 50 / (1 + Math.max(0, window.pageYOffset / 100)));
+                document.getElementById("logotxt").style.fontSize = size+"px";
+                document.getElementById("navbar").style.filter = "invert(" + Math.min(100, window.pageYOffset / 5) + "%)";
+            }
+            
+            
+            
+        </script>
     </body>
 </html>
