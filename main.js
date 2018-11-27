@@ -51,7 +51,7 @@ function ProjectView (props) {
 
   return (
     <div className="ProjectView" style={style_attr} >
-      <h2>{props.project}<code>  </code><a href={props.url}><i className="fab fa-github-square"></i></a></h2>
+      <h3><b>{props.project}</b><code>  </code><a href={props.url}><i className="fab fa-github-square"></i></a></h3>
       <p>{props.project_detail}</p>
     </div>
   );
@@ -61,7 +61,7 @@ function ProjectsView(props) {
 
   return (
     <div className="ProjectsView">
-      <h1>Projects</h1>
+      <h2>Projects</h2>
       
       {projects.map((project, ind) =>
         <div className="ProjectsBox" key={project["project"]}>
@@ -114,12 +114,12 @@ function NavView (props) {
     <div className="NavView">
       <div className="InnerNavView">
         <h1>TAEHYUN_LEE</h1>
-        <h1 id="contacts">
+        <h2 id="contacts">
           <a id="resume_link" href="personal_resume.pdf" >Resume</a>
           <a href="https://github.com/Taehyun-Lee"><i className="fab fa-github-square"></i></a>
           <a href="https://www.linkedin.com/in/taehyun-lee-uow/"><i className="fab fa-linkedin"></i></a>
           <a href="mailto:t73lee@edu.uwaterloo.ca"><i className="fas fa-envelope-square"></i></a>
-        </h1>
+        </h2>
         
         <h3 onClick={(e) => props.changeCurrent(types.About)}   >[{star(types.About)}] About</h3>
         <h3 onClick={(e) => props.changeCurrent(types.Projects)}>[{star(types.Projects)}] Projects</h3>
