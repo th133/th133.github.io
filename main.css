@@ -74,6 +74,10 @@ div.ContainingView {
   overflow: hidden;
 }
 
+div.ContentView h2 {
+  color: red;
+}
+
 div.NavView {
   display: flex;
   align-items: center;
@@ -130,22 +134,37 @@ div.VerticalLine {
   left: 5%;
 }
 
-div.InnerNavView a {
+#resume_link{
   text-decoration: none;
-  color: var(--font-color);
+  color: var(--background-color) !important;
   border-style: solid;
   border-color: var(--font-color);
   border-radius: 4px;
   border-width: 1px;
   padding: 4px;
-  background-color: var(--background-color);
+  font-size: 17px;
+  background-color: var(--font-color);
   transition: all 0.5s;
   color: var(--font-color);
+  margin-top: 0px !important;
 }
 
-div.InnerNavView a:hover {
-  background-color: var(--font-color);
+#resume_link:hover {
+  background-color: grey;
   color: var(--background-color);
+  border-color: grey;
+}
+
+#contacts{
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+}
+
+#contacts a {
+  margin-top: 3px;
+  margin-right: 10px;
+  transition: all 0.5s;
 }
 
 

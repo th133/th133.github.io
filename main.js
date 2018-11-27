@@ -21,6 +21,14 @@ let projects = [
   },
 ];
 
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
 let types = Object.freeze({ "About" : 1, "Projects" : 2, "Contacts" : 3});
 
 function ContactsView (props) {
@@ -106,10 +114,15 @@ function NavView (props) {
     <div className="NavView">
       <div className="InnerNavView">
         <h1>TAEHYUN_LEE</h1>
-        <a id="resume_link" href="personal_resume.pdf" >Resume</a>
+        <h1 id="contacts">
+          <a id="resume_link" href="personal_resume.pdf" >Resume</a>
+          <a href="https://github.com/Taehyun-Lee"><i className="fab fa-github-square"></i></a>
+          <a href="https://www.linkedin.com/in/taehyun-lee-uow/"><i className="fab fa-linkedin"></i></a>
+          <a href="mailto:t73lee@edu.uwaterloo.ca"><i className="fas fa-envelope-square"></i></a>
+        </h1>
+        
         <h3 onClick={(e) => props.changeCurrent(types.About)}   >[{star(types.About)}] About</h3>
         <h3 onClick={(e) => props.changeCurrent(types.Projects)}>[{star(types.Projects)}] Projects</h3>
-        <h3 onClick={(e) => props.changeCurrent(types.Contacts)}>[{star(types.Contacts)}] Contacts</h3>
       </div>
     </div>
   );
