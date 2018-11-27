@@ -1,3 +1,8 @@
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 :root {
   --background-color : white;
   --font-color : black;
@@ -21,6 +26,10 @@ body {
   width: 100%;
 }
 
+div {
+  animation: fadein 0.5s;
+}
+
 
 h1 {
   transition: all 0.5s;
@@ -40,6 +49,10 @@ span {
 
 p {
   transition: all 0.5s;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 a i {
@@ -67,6 +80,14 @@ div.NavView {
   justify-content: center;
   min-width: 300px;
   width: 30%;
+}
+
+div.NavView h3 {
+  cursor: pointer;
+}
+
+div.NavView h3:hover {
+  filter: invert(0.5);
 }
 
 div.ContentView {
@@ -102,6 +123,7 @@ div.VerticalLine {
 }
 
 #lightbulb i {
+  cursor: pointer;
   color: red;
   position: absolute;
   top: 5%;
