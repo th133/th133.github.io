@@ -21,13 +21,6 @@ let projects = [
   },
 ];
 
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
 
 let types = Object.freeze({ "About" : 1, "Projects" : 2, "Contacts" : 3});
 
@@ -79,7 +72,7 @@ function AboutView(props){
   return (
     <div className="AboutView">
       <h2>About Me</h2>
-      <p>I am a 3rd year CS student in the University of Waterloo.</p>
+      <p>I am a 3rd year CS student at the University of Waterloo.</p>
     </div>
   );
 }
