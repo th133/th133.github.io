@@ -121,33 +121,16 @@ function NavView (props) {
   );
 }
 
-function LightBulbView (props) {
-  var lightbulb = <i className="fas fa-lightbulb"></i>;
-  let root = document.documentElement;
-  if(!props.isLightTheme){
-    lightbulb = <i className="far fa-lightbulb"></i>;
-    root.style.setProperty("--background-color", "black");
-    root.style.setProperty("--font-color", "white");
-  } else {
-    root.style.setProperty("--background-color", "white");
-    root.style.setProperty("--font-color", "black");
-  }
-
-  return (
-    <a id="lightbulb" onClick={(e) => {
-        e.preventDefault();
-        props.changeTheme();
-      }
-    }>
-      {lightbulb}
-    </a>
-  );
-}
-
+/**
+ * Main react componenet, takes charge of which views to present
+ * 
+ * @constructor
+ * @this {App}
+ */
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state         = { current : types.About, isLightTheme : true };
+    this.state         = { current : types.About, theme : "WB" };
     this.changeCurrent = this.changeCurrent.bind(this);
     this.changeTheme   = this.changeTheme.bind(this);
   }
@@ -156,22 +139,30 @@ class App extends React.Component {
     this.setState({ current : newCurrent });
   }
 
-  changeTheme () {
-    this.setState({ isLightTheme : !this.state.isLightTheme });
+  changeTheme (paletteName) {
+    console.log(paletteName);
+    console.log(this.state.theme);
+    if(paletteName === this.state.theme) return;
+
+    let root = document.documentElement;
+    let [primCol, secCol, highCol] = themes[paletteName];
+
+    root.style.setProperty("--background-color", primCol);
+    root.style.setProperty("--font-color", secCol);
+    root.style.setProperty("--highlight-color", highCol);
+
+    this.setState({ theme : paletteName });
   }
 
   render() {
     return (
       <div className="ContainingView">
-        <LightBulbView changeTheme={this.changeTheme} 
-                       isLightTheme={this.state.isLightTheme}  /> 
-
-        <NavView       current={this.state.current} 
-                       changeCurrent={this.changeCurrent} />
-
-        <div          className="VerticalLine"/>
-
-        <ContentView   current={this.state.current} />
+        <ColorPalettesView changeTheme = {this.changeTheme} 
+                           curTheme    = {this.state.theme}/> 
+        <NavView current       = {this.state.current} 
+                 changeCurrent = {this.changeCurrent} />
+        <div className = "VerticalLine"/>
+        <ContentView current = {this.state.current} />
       </div>
     );
   }

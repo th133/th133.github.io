@@ -6,6 +6,7 @@
 :root {
   --background-color : white;
   --font-color : black;
+  --highlight-color : red;
 }
 
 html{
@@ -78,7 +79,7 @@ div.ContainingView {
 }
 
 div.ContentView h2 {
-  color: red;
+  color: var(--highlight-color);
 }
 
 div.NavView {
@@ -129,13 +130,20 @@ div.VerticalLine {
   height: 60%;
 }
 
-#lightbulb i {
-  cursor: pointer;
-  color: red;
+.ColorPalettesView{
   position: absolute;
-  font-size: 30px;
   top: 5%;
   left: 5%;
+}
+
+
+.ColorPalettesView a {
+  margin: 4px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 #resume_link{
