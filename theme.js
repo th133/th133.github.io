@@ -9,13 +9,10 @@ let themes =
 
 
 function ChangeColorView (props) {
-  let [primCol, secCol, highCol] = themes[props.paletteName];
 
   var style = {
-    backgroundColor : primCol,
+    backgroundColor : themes[props.paletteName][0],
   };
-
-  var colorchange = <i className="fas fa-circle" ></i>;
 
   return (
     <a  id="changecolor" 

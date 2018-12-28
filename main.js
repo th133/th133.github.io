@@ -55,15 +55,16 @@ function ProjectsView(props) {
   return (
     <div className="ProjectsView">
       <h2>Projects</h2>
-      
-      {projects.map((project, ind) =>
-        <div className="ProjectsBox" key={project["project"]}>
-          {ind != 0 && <div className="HorizontalLine" />}
-          <ProjectView project={project["project"]}
-                     project_detail={project["project_detail"]}
-                     url={project["url"]} />
-        </div>
-      )}
+      <div className="ProjectsContentsView">
+        {projects.map((project, ind) =>
+          <div className="ProjectsBox" key={project["project"]}>
+            {ind != 0 && <div className="HorizontalLine" />}
+            <ProjectView project={project["project"]}
+                      project_detail={project["project_detail"]}
+                      url={project["url"]} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

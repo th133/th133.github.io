@@ -114,6 +114,20 @@ div.ContactsView a {
   margin: 20px;
 }
 
+div.ProjectsView {
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+div.ProjectsContentsView{
+  width: 100%;
+  height: 80%;
+  overflow-y: scroll;
+  padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+  box-sizing: content-box; /* So the width will be 100% + 17px */
+}
+
 div.HorizontalLine {
   background-color: var(--font-color);
   justify-content: center;
