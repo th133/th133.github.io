@@ -59,12 +59,12 @@ a {
   text-decoration: none !important;
 }
 
-a i {
+a {
   transition: all 0.5s;
   color: var(--font-color);
 }
 
-a i:hover {
+a:hover {
   filter: invert(0.5);
 }
 
@@ -127,6 +127,7 @@ div.ProjectsContentsView{
   padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
   box-sizing: content-box; /* So the width will be 100% + 17px */
 }
+
 
 div.HorizontalLine {
   background-color: var(--font-color);

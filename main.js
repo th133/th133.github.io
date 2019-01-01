@@ -44,7 +44,7 @@ function ProjectView (props) {
 
   return (
     <div className="ProjectView" style={style_attr} >
-      <h3><b>{props.project}</b><code>  </code><a href={props.url}><i className="fab fa-github-square"></i></a></h3>
+      <h3><a href={props.url}><b>{props.project}</b><code>  </code><i className="fab fa-github-square"></i></a></h3>
       <p>{props.project_detail}</p>
     </div>
   );
