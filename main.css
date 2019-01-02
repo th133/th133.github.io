@@ -180,6 +180,7 @@ div.VerticalLine {
   background-color: grey;
   color: var(--background-color);
   border-color: grey;
+  filter: none;
 }
 
 #contacts{
