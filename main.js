@@ -57,7 +57,7 @@ function ProjectsView(props) {
       <h2>Projects</h2>
       <div className="ProjectsContentsView">
         {projects.map((project, ind) =>
-          <div className="ProjectsBox" key={project["project"]}>
+          <div className={"ProjectsBox" + (ind != 0 ? "" : " FirstElem")} key={project["project"]}>
             {ind != 0 && <div className="HorizontalLine" />}
             <ProjectView project={project["project"]}
                       project_detail={project["project_detail"]}
@@ -141,8 +141,6 @@ class App extends React.Component {
   }
 
   changeTheme (paletteName) {
-    console.log(paletteName);
-    console.log(this.state.theme);
     if(paletteName === this.state.theme) return;
 
     let root = document.documentElement;
