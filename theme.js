@@ -1,10 +1,10 @@
 
 let themes = 
   { 
-    "BW" : ["black", "white", "red"], 
-    "WB" : ["white", "black", "red"],
-    "RW" : ["red", "white", "black"], 
-    "BY" : ["blue", "white", "yellow"]
+    "BW" : ["#212121", "#f2f2f2", "#c45252"], 
+    "WB" : ["#f2f2f2", "#212121", "#c45252"],
+    "RW" : ["#c45252", "#f2f2f2", "#212121"], 
+    "BY" : ["#95aae5", "#f2f2f2", "#e2e868"]
   };
 
 
