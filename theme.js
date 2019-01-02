@@ -1,10 +1,17 @@
+let colors = {
+  white : "#f2f2f2",
+  black : "#212121",
+  red   : "#e86363",
+  blue  : "#95aae5",
+  yellow: "#e2e868"
+};
 
 let themes = 
   { 
-    "BW" : ["#212121", "#f2f2f2", "#c45252"], 
-    "WB" : ["#f2f2f2", "#212121", "#c45252"],
-    "RW" : ["#c45252", "#f2f2f2", "#212121"], 
-    "BY" : ["#95aae5", "#f2f2f2", "#e2e868"]
+    "BW" : [colors.black, colors.white, colors.red], 
+    "WB" : [colors.white, colors.black, colors.red],
+    "RW" : [colors.red, colors.white, colors.black], 
+    "BY" : [colors.blue, colors.white, colors.yellow]
   };
 
 

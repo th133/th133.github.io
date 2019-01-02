@@ -4,9 +4,9 @@
 }
 
 :root {
-  --background-color : white;
-  --font-color : black;
-  --highlight-color : red;
+  --background-color : #f2f2f2;
+  --font-color : #212121;
+  --highlight-color : #c45252;
 }
 
 html{
