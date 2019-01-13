@@ -16,10 +16,8 @@ let themes =
 
 
 function ChangeColorView (props) {
-
-  var style = {
-    backgroundColor : themes[props.paletteName][0],
-  };
+  var style = props.changeColStyle;
+  style["backgroundColor"] = themes[props.paletteName][0];
 
   return (
     <a  id="changecolor" 
@@ -33,12 +31,14 @@ function ChangeColorView (props) {
 }
 
 function ColorPalettesView (props) {
+  
   return (
-    <div className="ColorPalettesView">
+    <div className="ColorPalettesView" style={props.paletteStyle}>
       {
         Object.keys(themes).map((paletteName) => {
         if(paletteName === props.curTheme) return;
-        return <ChangeColorView paletteName = {paletteName} 
+        return <ChangeColorView changeColStyle = {props.changeColStyle}
+                                paletteName = {paletteName} 
                                 changeTheme = {props.changeTheme}/>
         })
       }

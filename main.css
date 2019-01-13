@@ -87,7 +87,6 @@ div.NavView {
   align-items: center;
   justify-content: center;
   min-width: 400px;
-  width: 40%;
 }
 
 div.NavView h3 {
@@ -148,18 +147,9 @@ div.VerticalLine {
   height: 60%;
 }
 
-.ColorPalettesView{
-  position: absolute;
-  top: 5%;
-  left: 5%;
-}
-
-
 .ColorPalettesView a {
   margin: 4px;
   display: inline-block;
-  width: 20px;
-  height: 20px;
   cursor: pointer;
   border-radius: 50%;
 }
