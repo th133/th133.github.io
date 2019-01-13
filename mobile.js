@@ -77,7 +77,7 @@ class MobileApp extends React.Component {
 
     var mobilePaletteContainingViewStyle = {
       position : "absolute",
-      top      : "30%",
+      top      : "28%",
       display  : "flex",
       alignItems: "center",
       justifyContent: "center"
@@ -88,8 +88,9 @@ class MobileApp extends React.Component {
     };
 
     var mobileChangeColStyle = {
-      width: "5vw",
-      height: "5vw"
+      width: "6vw",
+      height: "6vw",
+      margin: "2vw"
     };
     
     var mobileNavViewStyle = {
