@@ -17,8 +17,9 @@ function MobileNavView (props) {
   };
 
   var resumeStyle = {
-    padding: "0.65vw",
+    padding: "0.69vw",
     fontSize: "4.3vw",
+    borderRadius: "1vw"
   };
 
   var pStyle = {
