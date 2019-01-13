@@ -13,12 +13,18 @@ function MobileNavView (props) {
     justifyContent: "center",
     fontSize : "8vw",
     marginBottom : "2vw",
+    marginRight : "2vw",
     marginTop : "1vw"
+  };
+
+  var contactsStyle = {
+    marginRight: "2vw"
   };
 
   var resumeStyle = {
     padding: "0.69vw",
     fontSize: "4.3vw",
+    marginRight: "2vw",
     borderRadius: "1vw"
   };
 
@@ -32,9 +38,9 @@ function MobileNavView (props) {
         <h1 style={h1Style}>TAEHYUN_LEE</h1>
         <h2 id="contacts" style={h2Style}>
           <a id="resume_link" href="personal_resume.pdf" style={resumeStyle}>Resume</a>
-          <a href="https://github.com/Taehyun-Lee"><i className="fab fa-github-square"></i></a>
-          <a href="https://www.linkedin.com/in/taehyun-lee-uow/"><i className="fab fa-linkedin"></i></a>
-          <a href="mailto:t73lee@edu.uwaterloo.ca"><i className="fas fa-envelope-square"></i></a>
+          <a href="https://github.com/Taehyun-Lee" style={contactsStyle}><i className="fab fa-github-square"></i></a>
+          <a href="https://www.linkedin.com/in/taehyun-lee-uow/" style={contactsStyle}><i className="fab fa-linkedin"></i></a>
+          <a href="mailto:t73lee@edu.uwaterloo.ca" style={contactsStyle}><i className="fas fa-envelope-square"></i></a>
         </h2>
 
         <code style={pStyle}>I am a 3rd year CS student at the <br/> University of Waterloo</code>
