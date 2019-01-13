@@ -1,13 +1,16 @@
 class AppDecider extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { width : 0, height : 0, isMobile : false, theme : "WB"};
+    var theme = Cookies.get("theme");
+    theme = theme == undefined ? "WB" : theme;
+
+    this.state = { width : 0, height : 0, isMobile : false, theme : theme};
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.changeTheme   = this.changeTheme.bind(this);
+    this.changeTheme(this.state.theme);
   }
 
   changeTheme (paletteName) {
-    if(paletteName === this.state.theme) return;
 
     let root = document.documentElement;
     let [primCol, secCol, highCol] = themes[paletteName];
@@ -15,6 +18,7 @@ class AppDecider extends React.Component {
     root.style.setProperty("--background-color", primCol);
     root.style.setProperty("--font-color", secCol);
     root.style.setProperty("--highlight-color", highCol);
+    Cookies.set("theme", paletteName)
 
     this.setState({ theme : paletteName });
   }
