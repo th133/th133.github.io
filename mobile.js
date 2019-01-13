@@ -77,7 +77,7 @@ class MobileApp extends React.Component {
 
     var mobilePaletteContainingViewStyle = {
       position : "absolute",
-      top      : "28%",
+      top      : "85%",
       display  : "flex",
       alignItems: "center",
       justifyContent: "center"
