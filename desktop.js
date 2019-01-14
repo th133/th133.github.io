@@ -108,7 +108,7 @@ function DesktopNavView (props) {
       <div className="InnerNavView">
         <h1>TAEHYUN_LEE</h1>
         <h2 id="contacts">
-          <a id="resume_link" href="personal_resume.pdf" >Resume</a>
+          <a id="resume_link" href="Taehyun-Lee-Resume.pdf" >Resume</a>
           <a href="https://github.com/Taehyun-Lee"><i className="fab fa-github-square"></i></a>
           <a href="https://www.linkedin.com/in/taehyun-lee-uow/"><i className="fab fa-linkedin"></i></a>
           <a href="mailto:t73lee@edu.uwaterloo.ca"><i className="fas fa-envelope-square"></i></a>
