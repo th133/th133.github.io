@@ -2,7 +2,7 @@ let projects = [
   {
     "project"        : "append-markdown",
     "project_detail" : "A program intended to make keeping track of markdown notes easier.",
-    "url"            : "https://github.com/Taehyun-Lee/append-markdown"
+    "url"            : "https://github.com/th133/append-markdown"
   },
   {
     "project"        : "factor+",
@@ -12,12 +12,12 @@ let projects = [
   {
     "project"        : "community-bot",
     "project_detail" : "A Discord bot that tries to bring community essential functions to Discord, such as creating events.",
-    "url"            : "https://github.com/Taehyun-Lee/community-bot"
+    "url"            : "https://github.com/th133/community-bot"
   },
   {
     "project"        : "orbit",
     "project_detail" : "A library that takes insperation from orbiting stars to show requested content.",
-    "url"            : "https://github.com/Taehyun-Lee/orbit"
+    "url"            : "https://github.com/th133/orbit"
   },
 ];
 
@@ -28,7 +28,7 @@ function ContactsView (props) {
   return (
     <div className="ContactsView">
       <h1>
-      <a href="https://github.com/Taehyun-Lee"><i className="fab fa-github-square"></i></a>
+      <a href="https://github.com/th133"><i className="fab fa-github-square"></i></a>
       <a href="https://www.linkedin.com/in/taehyun-lee-uow/"><i className="fab fa-linkedin"></i></a>
       <a href="mailto:t73lee@edu.uwaterloo.ca"><i className="fas fa-envelope-square"></i></a>
       </h1>
@@ -109,7 +109,7 @@ function DesktopNavView (props) {
         <h1>TAEHYUN_LEE</h1>
         <h2 id="contacts">
           <a id="resume_link" href="Taehyun-Lee-Resume.pdf" >Resume</a>
-          <a href="https://github.com/Taehyun-Lee"><i className="fab fa-github-square"></i></a>
+          <a href="https://github.com/th133"><i className="fab fa-github-square"></i></a>
           <a href="https://www.linkedin.com/in/taehyun-lee-uow/"><i className="fab fa-linkedin"></i></a>
           <a href="mailto:t73lee@edu.uwaterloo.ca"><i className="fas fa-envelope-square"></i></a>
         </h2>
