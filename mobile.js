@@ -39,7 +39,7 @@ function MobileNavView (props) {
         <h2 id="contacts" style={h2Style}>
           <a id="resume_link" href="Taehyun-Lee-Resume.pdf" style={resumeStyle}>Resume</a>
           <a href="https://github.com/th133" style={contactsStyle}><i className="fab fa-github-square"></i></a>
-          <a href="https://www.linkedin.com/in/taehyun-lee-uow/" style={contactsStyle}><i className="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/taehyun-lee-uw/" style={contactsStyle}><i className="fab fa-linkedin"></i></a>
           <a href="mailto:t73lee@edu.uwaterloo.ca" style={contactsStyle}><i className="fas fa-envelope-square"></i></a>
         </h2>
 
