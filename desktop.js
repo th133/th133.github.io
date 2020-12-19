@@ -2,13 +2,8 @@ let types = Object.freeze({ "About" : 1, "Projects" : 2});
 
 
 function ProjectView (props) {
-
-  var style_attr = {
-    backgroundImage: `url(${props.image})`
-  };
-
   return (
-    <div className="ProjectView" style={style_attr} >
+    <div className="ProjectView">
       <h3><a href={props.url}><b>{props.project}</b><code>  </code><i className="fab fa-github-square"></i></a></h3>
       <p>{props.project_detail}</p>
     </div>
@@ -18,8 +13,8 @@ function ProjectView (props) {
 function ProjectsView(props) {
   return (
     <div className="ProjectsView">
-      <h2>Projects</h2>
       <div className="ProjectsContentsView">
+        <h2>Projects</h2>
         {projects.map((project, ind) =>
           <div className={"ProjectsBox" + (ind != 0 ? "" : " FirstElem")} key={project["project"]}>
             {ind != 0 && <div className="HorizontalLine" />}

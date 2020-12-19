@@ -38,11 +38,11 @@ const colors = {
     yellow: "#e2e868"
 };
 
-const themes = { 
-    "BW" : [colors.black, colors.white, colors.red], 
-    "WB" : [colors.white, colors.black, colors.red],
-    "RW" : [colors.red, colors.white, colors.black], 
-    "BY" : [colors.blue, colors.white, colors.yellow]
-};
+const themes = [
+    {"name": "BW", "primary": colors.black, "secondary": colors.white, "highlight": colors.red}, 
+    {"name": "WB", "primary": colors.white, "secondary": colors.black, "highlight": colors.red},
+    {"name": "RW", "primary": colors.red, "secondary": colors.white, "highlight": colors.black}, 
+    {"name": "BY", "primary": colors.blue, "secondary": colors.white, "highlight": colors.yellow}
+];
 
-const default_theme = "WB"
+const default_theme = themes.find(theme => theme.name == "WB");

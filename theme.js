@@ -1,48 +1,55 @@
 function ChangeColorView (props) {
   var style = props.changeColStyle;
-  style.backgroundColor = themes[props.paletteName][0];
+  style.backgroundColor = props.palette.primary;
 
   return (
     <a  id="changecolor" 
         style={style}
         onClick={(e) => {
         e.preventDefault();
-        props.changeTheme(props.paletteName);
+        props.changeTheme(props.palette);
       }
     }/>
   );
 }
 
+function currentTheme() {
+  let curTheme = 
+    themes.find(
+      theme => getComputedStyle(document.documentElement).getPropertyValue('--background-color').includes(theme.primary)
+    )
+
+  return curTheme != undefined ? curTheme : default_theme;
+}
 
 class ColorPalettesView extends React.Component {
   constructor(props){
     super(props)
-    this.state = { theme : default_theme};
+    this.state = { theme : currentTheme()};
     this.changeTheme = this.changeTheme.bind(this);
     this.changeTheme(this.state.theme);
   }
 
-  changeTheme (paletteName) {
-    if(paletteName === this.state.theme) return;
+  changeTheme (palette) {
+    if(palette.name === this.state.theme) return;
 
     let root = document.documentElement;
-    let [primCol, secCol, highCol] = themes[paletteName];
 
-    root.style.setProperty("--background-color", primCol);
-    root.style.setProperty("--font-color", secCol);
-    root.style.setProperty("--highlight-color", highCol);
+    root.style.setProperty("--background-color", palette.primary);
+    root.style.setProperty("--font-color", palette.secondary);
+    root.style.setProperty("--highlight-color", palette.highlight);
 
-    this.setState({ theme : paletteName });
+    this.setState({ theme : palette });
   }
 
   render() {
     return (
       <div className="ColorPalettesView" style={this.props.paletteStyle}>
         {
-          Object.keys(themes).map((paletteName) => {
-            if(paletteName === this.state.theme) return;
+          themes.map((theme) => {
+            if(theme == this.state.theme) return;
             return <ChangeColorView changeColStyle = {this.props.changeColStyle}
-                                    paletteName = {paletteName} 
+                                    palette = {theme} 
                                     changeTheme = {this.changeTheme}/>
           })
         }
