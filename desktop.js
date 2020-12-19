@@ -1,40 +1,5 @@
-let projects = [
-  {
-    "project"        : "append-markdown",
-    "project_detail" : "A program intended to make keeping track of markdown notes easier.",
-    "url"            : "https://github.com/th133/append-markdown"
-  },
-  {
-    "project"        : "factor+",
-    "project_detail" : "A math game but with a parabolic twist.",
-    "url"            : "https://github.com/lyoon1/FactorPlus-Ver.-2"
-  },
-  {
-    "project"        : "community-bot",
-    "project_detail" : "A Discord bot that tries to bring community essential functions to Discord, such as creating events.",
-    "url"            : "https://github.com/th133/community-bot"
-  },
-  {
-    "project"        : "orbit",
-    "project_detail" : "A library that takes insperation from orbiting stars to show requested content.",
-    "url"            : "https://github.com/th133/orbit"
-  },
-];
+let types = Object.freeze({ "About" : 1, "Projects" : 2});
 
-
-let types = Object.freeze({ "About" : 1, "Projects" : 2, "Contacts" : 3});
-
-function ContactsView (props) {
-  return (
-    <div className="ContactsView">
-      <h1>
-      <a href="https://github.com/th133"><i className="fab fa-github-square"></i></a>
-      <a href="https://www.linkedin.com/in/taehyun-lee-uow/"><i className="fab fa-linkedin"></i></a>
-      <a href="mailto:t73lee@edu.uwaterloo.ca"><i className="fas fa-envelope-square"></i></a>
-      </h1>
-    </div>
-  );
-}
 
 function ProjectView (props) {
 
@@ -72,7 +37,7 @@ function AboutView(props){
   return (
     <div className="AboutView">
       <h2>About Me</h2>
-      <p>I am a 3rd year CS student at the University of Waterloo.</p>
+      <p>{about_me}</p>
     </div>
   );
 }
@@ -81,8 +46,6 @@ function ContentView (props) {
   var currentView = <AboutView />;
   if(props.current == types.Projects) {
     currentView = <ProjectsView />;
-  } else if (props.current == types.Contacts) {
-    currentView = <ContactsView />;
   }
   return (
     <div className="ContentView">
@@ -108,10 +71,10 @@ function DesktopNavView (props) {
       <div className="InnerNavView">
         <h1>TAEHYUN_LEE</h1>
         <h2 id="contacts">
-          <a id="resume_link" href="Taehyun-Lee-Resume.pdf" >Resume</a>
-          <a href="https://github.com/th133"><i className="fab fa-github-square"></i></a>
-          <a href="https://www.linkedin.com/in/taehyun-lee-uw/"><i className="fab fa-linkedin"></i></a>
-          <a href="mailto:t73lee@edu.uwaterloo.ca"><i className="fas fa-envelope-square"></i></a>
+          <a id="resume_link" href={links.resume} >Resume</a>
+          <a href={links.github} ><i className="fab fa-github-square"></i></a>
+          <a href={links.linkedin} ><i className="fab fa-linkedin"></i></a>
+          <a href={links.mail} ><i className="fas fa-envelope-square"></i></a>
         </h2>
         
         <h3 onClick={(e) => props.changeCurrent(types.About)}   >[{star(types.About)}] About</h3>
@@ -133,11 +96,9 @@ class DesktopApp extends React.Component {
     this.changeCurrent = this.changeCurrent.bind(this);
   }
 
-
   changeCurrent (newCurrent) {
     this.setState({ current : newCurrent });
   }
-
 
   render() {
     var desktopPaletteStyle = {
@@ -158,9 +119,7 @@ class DesktopApp extends React.Component {
     return (
       <div className="ContainingView">
         <ColorPalettesView paletteStyle   = {desktopPaletteStyle}
-                           changeColStyle = {desktopChangeColStyle}
-                           changeTheme    = {this.props.changeTheme} 
-                           curTheme       = {this.props.theme}/> 
+                           changeColStyle = {desktopChangeColStyle}/> 
         <DesktopNavView navViewStyle  = {desktopNavViewStyle}
                  current       = {this.state.current} 
                  changeCurrent = {this.changeCurrent} />
